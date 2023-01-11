@@ -113,9 +113,8 @@ import main.UtilityTool;
 			setup(42, "hut", false);
 			setup(43, "floor01", false);
 			setup(44, "table01", true);
-			//setup(45, "bridge2", false);
-			//setup(45,"bridge2",false);
-			//setup(46,"bridge2a",false);
+			setup(45, "floor01", false);
+			setup(46,"floor01",false);
 			
 			
 	}

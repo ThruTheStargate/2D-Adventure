@@ -79,7 +79,7 @@ public class Player extends Entity{
         currentWeapon = new ObjSwordNormal(gp);
         //currentWeapon = new ObjAxe(gp);
         currentShield = new ObjShieldWood(gp);
-        //projectile = new ObjFireBallBlue(gp);
+        projectile = new ObjFireBall(gp);
         //projectile = new ObjRock(gp);
         attack = getAttack(); // The total attack value is decided by strength and weapon.
         defense = getDefense(); // The toal defense value is decided by dexterity and durrent shield.
@@ -102,7 +102,7 @@ public class Player extends Entity{
     	inventory.add(currentWeapon);
     	inventory.add(currentShield);
     	inventory.add(new ObjKey(gp));
-//    	inventory.add(new ObjFireBallBlue(gp));
+    	inventory.add(new ObjFireBall(gp));
 //    	inventory.add(new ObjLantern(gp));
 //    	inventory.add(new ObjKey(gp));
 //    	inventory.add(new ObjKey(gp));

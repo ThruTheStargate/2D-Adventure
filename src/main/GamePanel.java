@@ -22,11 +22,11 @@ import entity.Player;
 
 import tile.TileManager;
 import tileInteractive.InteractiveTile;
-
 //import entity.Player;
+
 public class GamePanel extends JPanel implements Runnable{
   
-//screen settings
+  //screen settings
   final int originalTileSize = 16; // 16x16 tile
   final int scale = 3;
   public final int tileSize = originalTileSize * scale; // 48x48 tile
@@ -40,9 +40,9 @@ public class GamePanel extends JPanel implements Runnable{
   public final int maxWorldCol = 51;
   public final int maxWorldRow = 64;
   public final int maxMap = 10;  // the number of maps we can create
-  public int currentMap = 0;  // the current map we are on. 
+  public int currentMap = 0;  // the current map we are on 
   
-  //for Full Screen
+  //for Fullscreen
   int screenWidth2 = screenWidth;
   int screenHeight2 = screenHeight;
   BufferedImage tempScreen;
