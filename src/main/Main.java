@@ -31,7 +31,5 @@ public class Main {
         //Sets up and runs game
         gamePanel.setUpGame();
         gamePanel.startGameThread();
-        
-        //this is a test comment
     } 
 }
