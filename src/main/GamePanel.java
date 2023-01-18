@@ -8,46 +8,54 @@ import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 import javax.swing.JPanel;
-
 import Environment.EnvironmentManager;
 import ai.PathFinder;
+//import Environment.EnvironmentManager;
+//import ai.PathFinder;
 import entity.Entity;
 import entity.Player;
+
 import tile.TileManager;
 import tileInteractive.InteractiveTile;
 
+//import entity.Player;
 public class GamePanel extends JPanel implements Runnable{
   
-  //screen settings
+//screen settings
   final int originalTileSize = 16; // 16x16 tile
   final int scale = 3;
   public final int tileSize = originalTileSize * scale; // 48x48 tile
   public final int maxScreenCol = 20;
   public final int maxScreenRow = 12; 
-  public final int screenWidth = tileSize * maxScreenCol; //960 pixels
-  public final int screenHeight = tileSize * maxScreenRow; //576 pixels
-
+  public final int screenWidth = tileSize * maxScreenCol;//960 pixels
+  public final int screenHeight = tileSize * maxScreenRow;//576 pixels
+  
+  
   //World Settings
   public final int maxWorldCol = 51;
   public final int maxWorldRow = 64;
   public final int maxMap = 10;  // the number of maps we can create
-  public int currentMap = 0;  // the current map we are on 
+  public int currentMap = 0;  // the current map we are on. 
   
-  //for Fullscreen
+  //for Full Screen
   int screenWidth2 = screenWidth;
   int screenHeight2 = screenHeight;
   BufferedImage tempScreen;
   Graphics2D g2;
   public boolean fullScreenOn = false;
   
+  
+  
+  
+  
   //FPS
   //FrameRate()
+  
   int FPS = 60;
   
   //System
@@ -65,7 +73,7 @@ public class GamePanel extends JPanel implements Runnable{
   Thread gameThread;
   
   //Entity and Object
-  public Player player = new Player(this, keyH);
+  public Player player = new Player(this, keyH) ;//Creates player from player class
   public Entity obj[][] = new Entity[maxMap][20];
   public Entity npc[][] = new Entity[maxMap][10];
   public Entity monster[][] = new Entity[maxMap][20];
@@ -107,8 +115,6 @@ public class GamePanel extends JPanel implements Runnable{
 	  eManager.setup();
 	 
 	  // playMusic(0);
-
-      //Start game in  title screen
 	  gameState = titleState; 
 	  
 	  //For different Screen resize
@@ -321,7 +327,7 @@ public class GamePanel extends JPanel implements Runnable{
       }
       });
       
-      //Draw Enttities 
+      //Draw Entities 
       for( int i = 0; i < entityList.size() ; i++ ) {
     	  entityList.get(i).draw(g2);
       }

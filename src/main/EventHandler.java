@@ -100,14 +100,14 @@ public class EventHandler {
 	
 	public void teleport( int gameState) {
 		gp.gameState = gameState;
-		gp.ui.currentDialogue = " You have teleported";
+		gp.ui.currentDialogue = "You have teleported";
 		gp.player.worldX = gp.tileSize*34;
 		gp.player.worldY = gp.tileSize*8;
 	}
 	public void damagePit(int gameState) {
 		gp.gameState = gameState;
 		gp.playSE(6);
-		gp.ui.currentDialogue = " You Fall into a pit";
+		gp.ui.currentDialogue = " You have fallen into a pit";
 		gp.player.life -=1;
 		//eventRect[col][row].eventDone = true;
 		canTouchEvent = false;

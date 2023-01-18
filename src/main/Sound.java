@@ -14,7 +14,6 @@ public class Sound {
 	int volumeScale = 3;
 	float volume;
 	
-	//Populates Sound object's URL array with URLs of sound files
 	public Sound() {
 		soundURL[0] = getClass().getResource("/sound/BlueBoyAdventure.wav");
 		soundURL[1] = getClass().getResource("/sound/coin.wav");
@@ -68,3 +67,4 @@ public class Sound {
 			fc.setValue(volume);
 	}
 }
+

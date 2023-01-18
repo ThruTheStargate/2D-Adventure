@@ -102,7 +102,7 @@ public class Player extends Entity{
     	inventory.add(currentWeapon);
     	inventory.add(currentShield);
     	inventory.add(new ObjKey(gp));
-    	inventory.add(new ObjFireBall(gp));
+//    	inventory.add(new ObjFireBall(gp));
 //    	inventory.add(new ObjLantern(gp));
 //    	inventory.add(new ObjKey(gp));
 //    	inventory.add(new ObjKey(gp));

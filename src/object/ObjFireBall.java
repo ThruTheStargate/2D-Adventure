@@ -17,7 +17,13 @@ public class ObjFireBall extends Projectile{
 		speed = 5;
 		maxLife = 80;
 		life = maxLife;
+		if (level < 5) {
 		attack = 2;
+		} else if(level < 10){
+			attack = level - 3;
+		} else { 
+			attack = 7;
+		}
 		useCost = 1;
 		alive = false;
 		getImage();

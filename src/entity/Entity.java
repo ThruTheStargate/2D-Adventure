@@ -13,11 +13,11 @@ import javax.imageio.ImageIO;
 import main.GamePanel;
 import main.UtilityTool;
 
-//import main.GamePanel;
 
 public class Entity {
 	 GamePanel gp;
-	 //Images
+	 //the many, many instance variables of this class
+	 //images
 	 public BufferedImage up1, up2, down1, down2, left1, left2, 
 	 right1, right2;
 	 public BufferedImage attackUp1, attackUp2, attackDown1,
@@ -46,7 +46,6 @@ public class Entity {
 	 public boolean onPath = false;
 	 public boolean knockBack = false;
 	 
-	 
 	 //counters
 	 public int spriteCounter = 0;
 	 public int actionBlockCounter;
@@ -55,6 +54,7 @@ public class Entity {
 	 public int dyingCounter = 0;
 	 public int hpBarCounter = 0;
 	 public int knockBackCounter  = 0;
+
 	 //Character attributes
 	 public String name;
 	 public int defaultSpeed;
@@ -97,7 +97,7 @@ public class Entity {
 	 //type
 	 public int type; // 0 = player; 1 = npc; 2 = monster; 3 = object
 	 public final int type_player = 0; 
-	 public final int type_npc =1;
+	 public final int type_npc = 1;
 	 public final int type_monster = 2;
 	 public final int type_sword = 3;
 	 public final int type_axe = 4;
@@ -110,6 +110,7 @@ public class Entity {
 	 
 	 //public float alpha;
 	 
+	 //the class constructor. Finally. 
 	 public Entity(GamePanel gp) {
 		 this.gp = gp;}
 	 public int getLeftX() {

@@ -2,30 +2,34 @@
 
 import java.util.Random;
 
+//importing classes from other folders
 import entity.Entity;
 import main.GamePanel;
 
-public class ObjChest extends Entity{
+//the class itself
+public class ObjChest extends Entity{  //extends = using parts of the Entity class
+	//intitializing variables
 	GamePanel gp;
 	Entity loot;
 	boolean opened = false;
+
 	public ObjChest(GamePanel gp, Entity loot) {
 		super(gp);
 		this.gp = gp;
 		this.loot = loot;
-		type = type_obstacle;
-		//type = type_pickupOnly;
+		type = type_obstacle; //types are defined in entity
 		name = "Chest";
 		
 		
 		image = setup("/objects/chest", gp.tileSize, gp.tileSize);
 		// add and open chest image
-				//image2 = setup("/objects/chestOpened", gp.tileSize, gp.tileSize);
+				//image2 = setup("/objects/chest_open_1", gp.tileSize, gp.tileSize);
 		
 		image2 = setup("/objects/chest", gp.tileSize, gp.tileSize);
 		down1 = image;
 		collision = true;
 		
+		//The dimensions of the hitbox
 		solidArea.x = 4;
 		solidArea.y = 16;
 		solidArea.width = 40;
