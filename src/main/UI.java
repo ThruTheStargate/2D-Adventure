@@ -214,7 +214,7 @@ public class UI {
 		g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 		
 		g2.setFont(g2.getFont().deriveFont(Font.BOLD,90F));
-		String text = "The Adventrue Game ";
+		String text = "Search for Castle Keep";
 		int x = getXforCenteredText(text); 
 		int y = gp.tileSize*3;
 		
