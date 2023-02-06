@@ -1,7 +1,8 @@
-package monster;
+package monster; //the file name
 
 import java.util.Random;
 
+//classes we made
 import entity.Entity;
 import main.GamePanel;
 
@@ -41,8 +42,8 @@ public class MonPinkSlime extends Monster{
 		
 	}
 	public void setAction() {
-		actionBlockCounter ++;
-    	if(actionBlockCounter == 120 ) {
+		actionBlockCounter ++;          //a variable from the entity class, under comment 'counters'
+    	if(actionBlockCounter == 120 ) {//
     		
     	
     	Random random = new Random();

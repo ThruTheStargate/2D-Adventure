@@ -1,7 +1,8 @@
-package monster;
+package monster; //the file name
 
 import java.util.Random;
 
+//classes we made
 import entity.Entity;
 import main.GamePanel;
 import object.ObjAxe;
@@ -13,7 +14,7 @@ import object.ObjRock;
 
 
 	public class Monster extends Entity{
-		GamePanel gp;
+		GamePanel gp; //new instance of the Game panel class
 	 public Monster(GamePanel gp) {
 		super(gp);
 		this.gp = gp;
@@ -21,7 +22,6 @@ import object.ObjRock;
 		
 	}
 		public void getImage() {
-			
 			
 		}
 		public void setAction() {
@@ -31,10 +31,10 @@ import object.ObjRock;
 						
 		}
 		
+		//what loot will the monster drop?
 		public void checkDrop() {
 			//random number for drop
 			int i = new Random().nextInt(100)+1;
-			
 			//set the monster drop 
 			if(i < 40) {
 				dropItem(new ObjCoinsBronze(gp));
