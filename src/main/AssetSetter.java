@@ -1,11 +1,13 @@
-package main;
+package main; //the folder name
 
-import entity.NPCMerchant;
+//all of the various classes, one for each object or character
+import entity.NPCMerchant;    //the NPCs
 import entity.NPCOldMAn;
-import monster.MonGreenSlime;
+import monster.MonGreenSlime; //the monsters
 import monster.MonPinkSlime;
 import monster.MonRedSlime;
-import object.ObjAxe;
+import monster.Trojan;
+import object.ObjAxe;        //the objects
 import object.ObjChest;
 import object.ObjCoinsBronze;
 import object.ObjDoor;
@@ -15,7 +17,7 @@ import object.ObjLantern;
 import object.ObjManaCrystal;
 import object.ObjPotionRed;
 import object.ObjShieldBlue;
-import tileInteractive.ITDrayTree;
+import tileInteractive.ITDrayTree;  //the trees you can cut down
 
 public class AssetSetter {
 	GamePanel gp;
@@ -24,7 +26,7 @@ public class AssetSetter {
 		
 	}
 	
-	public void setObject() {
+	public void setObject() {  //placing all the objects
 	
 		int mapNum = 0;
 		int i = 0;
@@ -82,7 +84,7 @@ public class AssetSetter {
 //		gp.obj[mapNum][i].worldX = gp.tileSize * 22;
 //		gp.obj[mapNum][i].worldY = gp.tileSize * 26;
 	}
-	public void setNPC() {
+	public void setNPC() { //setting up the NPCs
 		
 		// map 0
 		int mapNum = 0;
@@ -100,7 +102,7 @@ public class AssetSetter {
 		gp.npc[mapNum][i].worldY = gp.tileSize*7;
 		
 	}
-	public void setMonster() {
+	public void setMonster() { //adding the monsters
 		int mapNum = 0;
 		int i = 0;
 		
@@ -126,6 +128,12 @@ public class AssetSetter {
 		gp.monster[mapNum][i].worldX = gp.tileSize*40;
 		gp.monster[mapNum][i].worldY = gp.tileSize*10;	
 		
+		i++;
+
+		gp.monster[mapNum][i] = new Trojan(gp);
+		gp.monster[mapNum][i].worldX = gp.tileSize*40;
+		gp.monster[mapNum][i].worldY = gp.tileSize*10;
+
 		i++;
 		if(gp.player.level < 3) {
 			gp.monster[mapNum][i] = new MonGreenSlime(gp);
