@@ -1,8 +1,13 @@
 package monster; //file name
 
 import java.util.Random; 
-import entity.Entity;    //importing the entity class
-import main.GamePanel;   //importing GamePanel class
+import entity.Entity;        //importing the entity class
+import main.GamePanel;       //importing GamePanel class
+import object.ObjChest;      //loot classes
+import object.ObjCoinsBronze;
+import object.ObjHeart;
+import object.ObjManaCrystal;
+import object.ObjRock;
 
 public class Trojan extends Monster{
 
@@ -12,29 +17,19 @@ public class Trojan extends Monster{
 		speed = 2;
 		
 		getImage();
-		//setDialogue();
 	}
     public void getImage(){
         
-   	 	up1 = setup("/NPC/oldman_up_1", gp.tileSize, gp.tileSize);
-        up2 = setup("/NPC/oldman_up_2", gp.tileSize, gp.tileSize);
-        down1 = setup("/NPC/oldman_down_1", gp.tileSize, gp.tileSize);
-        down2 = setup("/NPC/oldman_down_2", gp.tileSize, gp.tileSize);
-        right1 = setup("/Walk/G_Walk_01", gp.tileSize, gp.tileSize);
-        right2 = setup("/Walk/G_Walk_02", gp.tileSize, gp.tileSize);
-        left1 = setup("/Walk/G_Walk_06", gp.tileSize, gp.tileSize);
-        left2 = setup("/Walk/G_Walk_07", gp.tileSize, gp.tileSize);   
+   	 	up1 = setup("/Trojan/Trojan_up_01", gp.tileSize, gp.tileSize);
+        up2 = setup("/Trojan/Trojan_up_02", gp.tileSize, gp.tileSize);
+        down1 = setup("/Trojan/Trojan_down_01", gp.tileSize, gp.tileSize);
+        down2 = setup("/Trojan/Trojan_down_02", gp.tileSize, gp.tileSize);
+        right1 = setup("/Trojan/Trojan_right_01", gp.tileSize, gp.tileSize);
+        right2 = setup("/Trojan/Trojan_right_02", gp.tileSize, gp.tileSize);
+        left1 = setup("/Trojan/Trojan_left_01", gp.tileSize, gp.tileSize);
+        left2 = setup("/Trojan/Trojan_left_02", gp.tileSize, gp.tileSize);   
    }
-   /*
-   public void setDialogue() {
-    	
-    	dialogues[0] = "Morning, good sir";
-    	dialogues[1] = "cheese";
-    	dialogues[2] = "string.";
-    	dialogues[3] = "fat black widow spiders";
-    	
-    }
-	//*/ 
+
     public void setAction() {
     	
     	if(onPath) {
@@ -71,14 +66,5 @@ public class Trojan extends Monster{
 	    	}
     	}
     }
-   public void speak() {
-	   
-	   //Do this charageter specific stuff
-	   super.speak();
-	   onPath = true;
-   }
-   
-   
-   
 	
 }

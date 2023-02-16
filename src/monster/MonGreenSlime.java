@@ -1,10 +1,9 @@
-package monster;
+package monster; //file name
 
 import java.util.Random;
-
-import entity.Entity;
+import entity.Entity;        //all our classes
 import main.GamePanel;
-import object.ObjChest;
+import object.ObjChest;      //loot classes
 import object.ObjCoinsBronze;
 import object.ObjHeart;
 import object.ObjManaCrystal;
