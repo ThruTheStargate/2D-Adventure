@@ -14,8 +14,25 @@ public class Trojan extends Monster{
 	public Trojan(GamePanel gp) {
 		super(gp);
 		direction = "right";
-		speed = 2;
 		
+		type = type_monster;
+		name = "Trojan";
+		defaultSpeed = 1;
+		speed = defaultSpeed;
+		maxLife = 100;
+		life = maxLife;
+		attack = 10;
+		defense = 0;
+		exp = 10;
+		
+		
+		solidArea.x = 3;
+		solidArea.y = 18;
+		solidArea.width = 42;
+		solidArea.height = 30;
+		solidAreaDefaultX = solidArea.x;
+		solidAreaDefaultY = solidArea.y;
+
 		getImage();
 	}
     public void getImage(){

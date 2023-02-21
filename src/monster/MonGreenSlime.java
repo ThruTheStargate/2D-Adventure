@@ -9,7 +9,7 @@ import object.ObjHeart;
 import object.ObjManaCrystal;
 import object.ObjRock;
 
-public class MonGreenSlime extends Monster{
+public class MonGreenSlime extends Monster{  //using the monster class
  GamePanel gp;
 	public MonGreenSlime(GamePanel gp) {
 		super(gp);
