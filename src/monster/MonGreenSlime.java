@@ -116,7 +116,6 @@ public class MonGreenSlime extends Monster{  //using the monster class
     }
 	public void damageReaction() {
 		actionBlockCounter = 0;
-		//direction = gp.player.direction;
 		onPath = true;
 		
 		
