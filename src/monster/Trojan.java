@@ -20,14 +20,14 @@ public class Trojan extends Monster{
 	}
     public void getImage(){
         
-   	 	up1 = setup("/monsters/Trojan/Trojan_up_01", gp.tileSize, gp.tileSize);
-        up2 = setup("/monsters/Trojan/Trojan_up_02", gp.tileSize, gp.tileSize);
-        down1 = setup("/monsters/Trojan/Trojan_down_01", gp.tileSize, gp.tileSize);
-        down2 = setup("/monsters/Trojan/Trojan_down_02", gp.tileSize, gp.tileSize);
-        right1 = setup("/monsters/Trojan/Trojan_right_01", gp.tileSize, gp.tileSize);
-        right2 = setup("/monsters/Trojan/Trojan_right_02", gp.tileSize, gp.tileSize);
-        left1 = setup("/monsters/Trojan/Trojan_left_01", gp.tileSize, gp.tileSize);
-        left2 = setup("/monsters/Trojan/Trojan_left_02", gp.tileSize, gp.tileSize);   
+   	 	up1 = setup("/monsters/Trojan/Trojan_up_01", (2*gp.tileSize), 2*gp.tileSize);
+        up2 = setup("/monsters/Trojan/Trojan_up_02",  (2*gp.tileSize), 2*gp.tileSize);
+        down1 = setup("/monsters/Trojan/Trojan_down_01", (2*gp.tileSize), 2*gp.tileSize);
+        down2 = setup("/monsters/Trojan/Trojan_down_02", (2*gp.tileSize), 2*gp.tileSize);
+        right1 = setup("/monsters/Trojan/Trojan_right_01", (2*gp.tileSize), 2*gp.tileSize);
+        right2 = setup("/monsters/Trojan/Trojan_right_02", (2*gp.tileSize), 2*gp.tileSize);
+        left1 = setup("/monsters/Trojan/Trojan_left_01", (2*gp.tileSize), 2*gp.tileSize);
+        left2 = setup("/monsters/Trojan/Trojan_left_02", (2*gp.tileSize), 2*gp.tileSize);   
    }
 
     public void setAction() {
