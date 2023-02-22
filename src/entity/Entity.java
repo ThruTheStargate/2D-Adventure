@@ -18,13 +18,15 @@ public class Entity {
 	 GamePanel gp;
 	 //the many, many instance variables of this class
 	 //images
-	 public BufferedImage up1, up2, down1, down2, left1, left2, 
+	 public BufferedImage up1, up2, down1, down2, left1, left2,       //regular movement
 	 right1, right2;
-	 public BufferedImage attackUp1, attackUp2, attackDown1,
+	 public BufferedImage attackUp1, attackUp2, attackDown1,          //sword movement
 	 attackDown2, attackLeft1, attackLeft2, attackRight1,
 	 attackRight2; 
-	 public BufferedImage axeUp1, axeUp2, axeDown1, axeDown2, 
+	 public BufferedImage axeUp1, axeUp2, axeDown1, axeDown2,         //ax movement
 	 axeLeft1, axeLeft2, axeRight1, axeRight2;
+	 public BufferedImage staffUp1, staffUp2, staffDown1, staffDown2, //spirit stick movement
+	 staffLeft1, staffLeft2, staffRight1, staffRight2;
 	 public BufferedImage image, image2, image3;
 	 public Rectangle solidArea = new Rectangle(0, 0, 32, 32);
 	 public Rectangle attackArea = new Rectangle(0, 0, 0, 0);
@@ -32,7 +34,7 @@ public class Entity {
 	 public boolean collisionOn =  false;
 	 String dialogues[] = new String[20];
 	 
-	 //State
+	 //state
 	 public int worldX,worldY;
 	 public String direction = "down";
 	 public int spriteNum = 1;
@@ -55,7 +57,7 @@ public class Entity {
 	 public int hpBarCounter = 0;
 	 public int knockBackCounter  = 0;
 
-	 //Character attributes
+	 //character attributes
 	 public String name;
 	 public int defaultSpeed;
 	 public int speed;
@@ -80,7 +82,7 @@ public class Entity {
 	 public Projectile projectile;
 	 
 	 
-	 //Items attributes
+	 //item attributes
 	 public int value;
 	 public int attackValue;
 	 public int defenseValue;
@@ -94,8 +96,8 @@ public class Entity {
 	 public int amount = 1;
 	 public int lightRadius;
 	 
-	 //type
-	 public int type; // 0 = player; 1 = npc; 2 = monster; 3 = object
+	 //type, or the numeric identity of each kind of thing
+	 public int type; 
 	 public final int type_player = 0; 
 	 public final int type_npc = 1;
 	 public final int type_monster = 2;
@@ -112,7 +114,10 @@ public class Entity {
 	 
 	 //the class constructor. Finally. 
 	 public Entity(GamePanel gp) {
-		 this.gp = gp;}
+		 this.gp = gp;
+		}
+
+	//allow other parts of the program to get the variables
 	 public int getLeftX() {
 		 return worldX + solidArea.x;
 	 }
@@ -131,12 +136,18 @@ public class Entity {
 	 public int getRow() {
 		 return (worldY + solidArea.y)/gp.tileSize;
 	 }
-	 public void setAction() { }
-	 public void damageReaction() {}
+
+	 //blank methods, to be filled in each class that uses this class
+	 public void setAction() {}       //what does it do?
+	 public void damageReaction() {}  //if hurt, how does it bleed?
+	 public void interact() {}        //how does it interact with other things?
+	 public void checkDrop(){}        //if you kill it, does it drop loot?
+
 	 public void speak() {
 	   if(dialogues[dialogueIndex] == null ) {
 		   dialogueIndex = 0;
 	   }
+
 	   gp.ui.currentDialogue = dialogues[dialogueIndex];
 	   dialogueIndex++;
 	 
@@ -147,10 +158,9 @@ public class Entity {
 	   case " right":  direction = "left";  break;
 	   }
 	 }
-	  
-	 public void interact() {}
+
 	 public boolean use(Entity entity) {return false;}
-	 public void checkDrop(){}
+
 	 public void dropItem(Entity droppedItem) {
 		 for(int i = 0; i < gp.obj[1].length; i++ ) {
 			 if(gp.obj[gp.currentMap][i] == null) {
@@ -162,6 +172,7 @@ public class Entity {
 		 }
 	 }
 	 
+	 //particle physics?
 	 public Color getParticleColor() {
 			Color color = null;		
 			return color;
@@ -198,6 +209,7 @@ public class Entity {
 		 
 	 }
 	 
+	 //make the entity solid
 	 public void checkCollision() {
 		 collisionOn = false;
 		 gp.cCheck.checkTile(this);
@@ -279,6 +291,7 @@ public class Entity {
 		 
 	 }
 	 
+	//how to hurt the player
 	public void damagePlayer(int attack) {
 		 if(gp.player.invincible == false) {
 			 gp.playSE(6);
@@ -390,6 +403,7 @@ public class Entity {
 				return image;
 		   }
 	 public void searchPath(int goalCol, int goalRow) {
+
 		 int startCol = (worldX + solidArea.x)/gp.tileSize;
 		 int startRow = (worldY + solidArea.y)/gp.tileSize;
 		 gp.pFinder.setNodes(startCol, startRow, goalCol, goalRow,this);
