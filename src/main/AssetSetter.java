@@ -3,6 +3,7 @@ package main; //the folder name
 //all of the various classes, one for each object or character
 import entity.NPCMerchant;    //the NPCs
 import entity.NPCOldMAn;
+import entity.Bobcat;
 import monster.MonGreenSlime; //the monsters
 import monster.MonPinkSlime;
 import monster.MonRedSlime;
@@ -89,9 +90,14 @@ public class AssetSetter {
 		// map 0
 		int mapNum = 0;
 		int i = 0 ;
-		gp.npc[mapNum][i] = new NPCOldMAn(gp);
-		gp.npc[mapNum][i].worldX = gp.tileSize*21;
+		gp.npc[mapNum][i] = new NPCOldMAn(gp);     //initializing new item in the GamePanel array npc
+		gp.npc[mapNum][i].worldX = gp.tileSize*21; //your x and y
 		gp.npc[mapNum][i].worldY = gp.tileSize*21;
+		i++;
+
+		gp.npc[mapNum][i] = new Bobcat(gp);       //new item in Gamepanel array npc, the Bobcat's numeric identity
+		gp.npc[mapNum][i].worldX = gp.tileSize*21;//your x and y
+		gp.npc[mapNum][i].worldY = gp.tileSize*23;
 		
 		
 		// map 1
