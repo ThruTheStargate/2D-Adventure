@@ -17,15 +17,23 @@ public class Bobcat extends Entity{
         setDialogue();
     }
     public void getImage(){
-       
-    up1 = setup("/NPC/bobcat_up_walk_01.png", gp.tileSize, gp.tileSize);
-        up2 = setup("/NPC/bobcat_up_walk_02.png", gp.tileSize, gp.tileSize);
-        down1 = setup("/NPC/bobcat_down_walk_01.png", gp.tileSize, gp.tileSize);
-        down2 = setup("/NPC/bobcat_down_walk_02.png", gp.tileSize, gp.tileSize);
-        left1 = setup("/NPC/bobcat_left_walk_01.png", gp.tileSize, gp.tileSize);
-        left2 = setup("/NPC/bobcat_left_walk_02.png", gp.tileSize, gp.tileSize);
-        right1 = setup("/NPC/bobcat_right_walk_01.png", gp.tileSize, gp.tileSize);
-        right2 = setup("/NPC/bobcat_right_walk_02.png", gp.tileSize, gp.tileSize);  
+
+		//images to animate walking
+    	up1 = setup("/NPC/bobcat_up_walk_01", gp.tileSize, gp.tileSize);
+        up2 = setup("/NPC/bobcat_up_walk_02", gp.tileSize, gp.tileSize);
+        down1 = setup("/NPC/bobcat_down_walk_01", gp.tileSize, gp.tileSize);
+        down2 = setup("/NPC/bobcat_down_walk_02", gp.tileSize, gp.tileSize);
+        left1 = setup("/NPC/bobcat_left_walk_01", gp.tileSize, gp.tileSize);
+        left2 = setup("/NPC/bobcat_left_walk_02", gp.tileSize, gp.tileSize);
+        right1 = setup("/NPC/bobcat_right_walk_01", gp.tileSize, gp.tileSize);
+        right2 = setup("/NPC/bobcat_right_walk_02", gp.tileSize, gp.tileSize);  
+
+		//images to animate sitting
+		upSit = setup("/NPC/bobcat_up_sit", gp.tileSize, gp.tileSize);
+		downSit = setup("/NPC/bobcat_down_sit", gp.tileSize, gp.tileSize);
+		leftSit = setup("/NPC/bobcat_left_sit", gp.tileSize, gp.tileSize);
+		rightSit = setup("/NPC/bobcat_right_sit", gp.tileSize, gp.tileSize);
+
    }
     public void setDialogue() {}
 
@@ -57,7 +65,7 @@ public class Bobcat extends Entity{
             //int goalCol = 12;
             //int goalRow = 9;
            
-            // uncomment the below if you want the NPC to follow the character.
+            // causes the bobcat to follow the player
             int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
             int goalRow = (gp.player.worldY + gp.player.solidArea.y)/gp.tileSize;
            
