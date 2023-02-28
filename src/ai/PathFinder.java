@@ -1,12 +1,13 @@
 package ai;
 
-import java.util.ArrayList;
-
-import entity.Entity;
+//imported classes
+import java.util.ArrayList; 
+import entity.Entity;      //our classes
 import main.GamePanel;
 
 
 public class PathFinder {
+	//the instance variables
 	GamePanel gp;
 	Node[][] node;
 	ArrayList<Node> openList = new ArrayList<>();
