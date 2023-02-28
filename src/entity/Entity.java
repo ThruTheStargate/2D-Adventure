@@ -20,6 +20,7 @@ public class Entity {
 	 //images
 	 public BufferedImage up1, up2, down1, down2, left1, left2,       //regular movement
 	 right1, right2;
+	 public BufferedImage upSit, downSit, leftSit, rightSit;          //four-legged animal sitting
 	 public BufferedImage attackUp1, attackUp2, attackDown1,          //sword movement
 	 attackDown2, attackLeft1, attackLeft2, attackRight1,
 	 attackRight2; 
@@ -109,8 +110,6 @@ public class Entity {
 	 public final int type_magic = 8;
 	 public final int type_obstacle = 9;
 	 public final int type_light = 10;
-	 
-	 //public float alpha;
 	 
 	 //the class constructor. Finally. 
 	 public Entity(GamePanel gp) {
