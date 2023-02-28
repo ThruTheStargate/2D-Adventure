@@ -1,20 +1,18 @@
-package ai;
+package ai; //the folder
 
-import java.awt.Color;
+import java.awt.Color; //the one imported class
 
-
+//essentially, this class stores coordinates for PathFinder
 public class Node {
-	Node parent;
-	public int col;
-	public int row;
-	int gCost;
-	int hCost;
+	Node parent;    //the previous node
+	public int col; //column = x
+	public int row; //row    = y
+	int gCost;      //'cost' variables are used to calculate path 
+	int hCost;      //efficiancy
 	int fCost;
-//	boolean start;
-//	boolean goal;
-	boolean solid;
+	boolean solid;  //is it sold?
 	boolean open;
-	boolean checked;
+	boolean checked;//has it been checked?
 	
 	public Node(int col, int row) {
 		this.col = col;
