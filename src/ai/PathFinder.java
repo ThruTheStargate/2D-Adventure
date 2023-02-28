@@ -206,7 +206,7 @@ public class PathFinder {
 		return goalReached;
 				
 	}
-	//***************************  Starte Here at:14:54
+	//***************************  Start Here at:14:54
 	
 	private void openNode(Node node) {
 	

@@ -1,7 +1,9 @@
-package main;
+package main; //the folder
 
+//the many imported classes
+//foreign classes
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Dimension; 
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -11,53 +13,38 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
 import javax.swing.JPanel;
+//our classes
 import Environment.EnvironmentManager;
 import ai.PathFinder;
-//import Environment.EnvironmentManager;
-//import ai.PathFinder;
 import entity.Entity;
 import entity.Player;
-
 import tile.TileManager;
 import tileInteractive.InteractiveTile;
 
-//import entity.Player;
 public class GamePanel extends JPanel implements Runnable{
-  
-//screen settings
-  final int originalTileSize = 16; // 16x16 tile
+  //the million instance variables
+  //screen settings
+  final int originalTileSize = 16;                        // 16x16 tile
   final int scale = 3;
-  public final int tileSize = originalTileSize * scale; // 48x48 tile
+  public final int tileSize = originalTileSize * scale;   // 48x48 tile
   public final int maxScreenCol = 20;
   public final int maxScreenRow = 12; 
-  public final int screenWidth = tileSize * maxScreenCol;//960 pixels
+  public final int screenWidth = tileSize * maxScreenCol; //960 pixels
   public final int screenHeight = tileSize * maxScreenRow;//576 pixels
-  
-  
-  //World Settings
+  //world settings
   public final int maxWorldCol = 51;
   public final int maxWorldRow = 64;
-  public final int maxMap = 10;  // the number of maps we can create
-  public int currentMap = 0;  // the current map we are on. 
-  
-  //for Full Screen
-  int screenWidth2 = screenWidth;
+  public final int maxMap = 10;     // the number of maps we can create
+  public int currentMap = 0;        // the current map we are on. 
+  int screenWidth2 = screenWidth;      // for full screen (
   int screenHeight2 = screenHeight;
   BufferedImage tempScreen;
   Graphics2D g2;
-  public boolean fullScreenOn = false;
-  
-  
-  
-  
-  
+  public boolean fullScreenOn = false; // )
   //FPS
   //FrameRate()
-  
   int FPS = 60;
-  
   //System
   public TileManager tileM = new TileManager(this);
   public KeyHandler keyH = new KeyHandler(this);
@@ -71,20 +58,16 @@ public class GamePanel extends JPanel implements Runnable{
   public PathFinder pFinder = new PathFinder(this);
   EnvironmentManager eManager = new EnvironmentManager(this);
   Thread gameThread;
-  
-  //Entity and Object
-  public Player player = new Player(this, keyH) ;//Creates player from player class
+  //entity and object
+  public Player player = new Player(this, keyH) ;    //Creates player from player class
   public Entity obj[][] = new Entity[maxMap][20];
   public Entity npc[][] = new Entity[maxMap][10];
   public Entity monster[][] = new Entity[maxMap][20];
   public InteractiveTile iTile[][] = new InteractiveTile[maxMap][50];
   public Entity[][] projectile = new Entity[maxMap][20];
-  //public ArrayList<Entity> projectileList = new ArrayList<>();
   public ArrayList<Entity> particleList = new ArrayList<>();
   ArrayList<Entity> entityList = new ArrayList<>();
-  
-  
-  //game State 
+  //game state 
   public int gameState;
   public final int titleState = 0;
   public final int playState = 1;
@@ -114,10 +97,9 @@ public class GamePanel extends JPanel implements Runnable{
 	  
 	  eManager.setup();
 	 
-	  // playMusic(0);
 	  gameState = titleState; 
 	  
-	  //For different Screen resize
+	  //For different screen resize
 	  tempScreen = new BufferedImage(screenWidth,screenHeight, BufferedImage.TYPE_INT_ARGB);
 	  g2 = (Graphics2D)tempScreen.getGraphics();
 	 if(fullScreenOn) {

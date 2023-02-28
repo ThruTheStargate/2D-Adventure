@@ -1,7 +1,5 @@
 package ai; //the folder
 
-import java.awt.Color; //the one imported class
-
 //essentially, this class stores coordinates for PathFinder
 public class Node {
 	Node parent;    //the previous node

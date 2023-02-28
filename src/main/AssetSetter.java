@@ -36,11 +36,6 @@ public class AssetSetter {
 		gp.obj[mapNum][i].worldY = gp.tileSize * 22;
 		i++;
 		
-		//gp.obj[mapNum][i] = new ObjLantern(gp);
-		//gp.obj[mapNum][i].worldX = gp.tileSize * 23;
-//		gp.obj[mapNum][i].worldY = gp.tileSize * 23;
-//		i++;
-		
 		gp.obj[mapNum][i] = new ObjCoinsBronze(gp);
 		gp.obj[mapNum][i].worldX = gp.tileSize * 23;
 		gp.obj[mapNum][i].worldY = gp.tileSize * 22;
