@@ -9,11 +9,11 @@ import main.GamePanel;
 public class PathFinder {
 	//the instance variables
 	GamePanel gp;
-	Node[][] node;
+	Node[][] node;                                       //a 2D array of nodes. It stores all the coordinates
 	ArrayList<Node> openList = new ArrayList<>();
 	public ArrayList<Node> pathList = new ArrayList<>();
-	Node startNode, goalNode, currentNode;
-	boolean goalReached = false;
+	Node startNode, goalNode, currentNode;               //node values used to calculate the path
+	boolean goalReached = false;                         //tells the entity when it has reached its goal
 	int step = 0;
 	
 	public PathFinder(GamePanel gp) {
@@ -21,19 +21,19 @@ public class PathFinder {
 		instantiateNodes();
 	}
 	
+	//creating the coordinate grid
 	public void instantiateNodes() { 
-		node = new Node[gp.maxWorldCol][gp.maxWorldRow];
-		
-		int col = 0 ;
+		node = new Node[gp.maxWorldCol][gp.maxWorldRow]; //initialize the array
+		int col = 0;                                     //and initialize x and y
 		int row = 0;
 		
-		while(col < gp.maxWorldCol && row < gp.maxWorldRow) {
-			node[col][row] = new Node(col,row);
-			col++;
+		while(col < gp.maxWorldCol && row < gp.maxWorldRow) { //while our x and y are less than the maximum...
+			node[col][row] = new Node(col,row);               //make a new node...
+			col++;                                            //and move one x over
 			
-			if(col == gp.maxWorldCol) {
-				col = 0; 
-				row++;
+			if(col == gp.maxWorldCol) {                       //unless x equals the maximum x...
+				col = 0;                                      //then set x to zero again...
+				row++;                                        //and move one y down
 			}
 		}
 	}
