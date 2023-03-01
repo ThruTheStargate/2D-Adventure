@@ -1,11 +1,12 @@
-package main;
+package main; //the folder
 
-import java.awt.event.KeyEvent;
+import java.awt.event.KeyEvent;   //classes we import
 import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener{
 	GamePanel gp;
-	public boolean upPressed, downPressed, leftPressed, rightPressed, debug, axePlus, music = true, enterPressed, spacePressed, shotKeyPressed;
+	public boolean upPressed, downPressed, leftPressed, rightPressed;
+	public boolean debug, axePlus, music = true, enterPressed, spacePressed, shotKeyPressed, aPressed;
     //Debug 
     boolean showDebugText = false;
     
@@ -166,6 +167,9 @@ public class KeyHandler implements KeyListener{
 	        if (code == KeyEvent.VK_RIGHT){
 	            rightPressed = true;
 	        }
+			if (code == KeyEvent.VK_A){
+				aPressed = true;
+			}
 //	        if(code == KeyEvent.VK_K) {
 //	        	debug = true;
 //	        }
@@ -460,6 +464,9 @@ public class KeyHandler implements KeyListener{
         if (code == KeyEvent.VK_RIGHT){
             rightPressed = false;
         }
+		if (code == KeyEvent.VK_A){
+			aPressed = false;
+		}
         if(code == KeyEvent.VK_K) {
         	debug = false;
         }

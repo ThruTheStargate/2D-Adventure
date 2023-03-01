@@ -1,12 +1,13 @@
-package entity;
-import java.awt.AlphaComposite;
+package entity; //the folder
+
+import java.awt.AlphaComposite;      //classes imported
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import main.GamePanel;
+import main.GamePanel;               //our classes
 import main.KeyHandler;
 import object.ObjBoots;
 import object.ObjKey;
@@ -215,7 +216,7 @@ public class Player extends Entity{
     		 	
     		 	
     		 	//IF colliosn is false, player can move
-    		 	if(collisionOn == false && keyH.spacePressed == false ) {
+    		 	if(collisionOn == false && keyH.spacePressed == false || keyH.aPressed) {
     		 		switch(direction) {
     		 		case "up": worldY -= speed; break;
     		 		case "down": worldY += speed; break;
