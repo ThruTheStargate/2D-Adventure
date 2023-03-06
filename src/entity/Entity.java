@@ -208,10 +208,14 @@ public class Entity {
 		 
 	 }
 	 
-	 //make the entity solid
+	 public boolean getCollision() {
+		return collisionOn;
+	 }
+
+	 //have I collided with something?
 	 public void checkCollision() {
-		 collisionOn = false;
-		 gp.cCheck.checkTile(this);
+		 collisionOn = false;                                 //set collision to false
+		 gp.cCheck.checkTile(this);                           //is the tile solid?
 		 gp.cCheck.checkObject(this, false);
 		 gp.cCheck.checkEntity(this, gp.npc);
 		 gp.cCheck.checkEntity(this, gp.monster);	

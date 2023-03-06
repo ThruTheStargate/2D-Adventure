@@ -8,11 +8,16 @@ public class CollisionCheck {
 	public CollisionCheck(GamePanel gp) {
 		this.gp = gp;
 	}
+
+	//checks if the tile is supposed to be solid
 	public void checkTile(Entity entity) {
+
+		//define the entity's hitbox
 		int entityLeftWorldX = entity.worldX + entity.solidArea.x;
 		int entityRightWorldX = entity.worldX + entity.solidArea.x + entity.solidArea.width ;
 		int entityTopWorldY = entity.worldY + entity.solidArea.y;
 		int entityBottomWorldY = entity.worldY + entity.solidArea.y+ entity.solidArea.height;
+		//define the entity's position
 		int entityLeftCol = entityLeftWorldX/gp.tileSize;
 		int entityRightCol = entityRightWorldX/gp.tileSize;
 		int entityTopRow = entityTopWorldY/gp.tileSize;
@@ -20,8 +25,8 @@ public class CollisionCheck {
 		
 		int tileNum1, tileNum2;
 		
-		switch(entity.direction) {
-		case "up":
+		switch(entity.direction) { //what direction is the entity moving?
+		case "up":                 //if its moving up...
 			entityTopRow = (entityTopWorldY-entity.speed)/gp.tileSize;
 			tileNum1 = gp.tileM.mapTileNum[gp.currentMap][entityLeftCol][entityTopRow];
 			tileNum2 = gp.tileM.mapTileNum[gp.currentMap][entityRightCol][entityTopRow];
@@ -29,7 +34,7 @@ public class CollisionCheck {
 				entity.collisionOn = true;
 			}
 			break;
-		case "down":
+		case "down":               //if its moving down...
 			entityBottomRow = (entityBottomWorldY + entity.speed)/gp.tileSize;
 			tileNum1 = gp.tileM.mapTileNum[gp.currentMap][entityLeftCol][entityBottomRow];
 			tileNum2 = gp.tileM.mapTileNum[gp.currentMap][entityRightCol][entityBottomRow];
@@ -37,7 +42,7 @@ public class CollisionCheck {
 				entity.collisionOn = true;
 			}
 			break;
-		case "left":
+		case "left":              //if its moving left...
 			entityLeftCol = (entityLeftWorldX - entity.speed)/gp.tileSize;
 			tileNum1 = gp.tileM.mapTileNum[gp.currentMap][entityLeftCol][entityTopRow];
 			tileNum2 = gp.tileM.mapTileNum[gp.currentMap][entityLeftCol][entityBottomRow];
@@ -45,7 +50,7 @@ public class CollisionCheck {
 				entity.collisionOn = true;
 			}
 			break;
-		case "right":
+		case "right":              //if its moving right...
 			entityRightCol = (entityRightWorldX + entity.speed)/gp.tileSize;
 			tileNum1 = gp.tileM.mapTileNum[gp.currentMap][entityRightCol][entityTopRow];
 			tileNum2 = gp.tileM.mapTileNum[gp.currentMap][entityRightCol][entityBottomRow];
@@ -95,7 +100,7 @@ public class CollisionCheck {
 		}
 		return index;
 	}
-	//NPC or MonSTer COllision
+	//NPC or monster collision
 	public int checkEntity( Entity entity, Entity[][] target) {
 int index = 999;
 		

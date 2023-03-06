@@ -1,15 +1,20 @@
-package entity;
+package entity; //the folder
 
+//classes imported
 import main.GamePanel;
 
-public class Projectile extends Entity{
+public class Projectile extends Entity{ //class projectile uses parts of entity
 
+	//the instance variables
 	Entity user;
-	
-	public Projectile(GamePanel gp) {
+	boolean collision;
+
+	public Projectile(GamePanel gp) { //the constructor
 		super(gp);
 		
 	}
+
+	//sets up the projectile
 	public void set(int worldX, int worldY, String direction, boolean alive, Entity user) {
 		this.worldX = worldX;
 		this.worldY = worldY;
@@ -19,6 +24,8 @@ public class Projectile extends Entity{
 		this.life = this.maxLife;
 		
 	}
+
+	//updates its progress
 	public void update() {
 		
 		if(user == gp.player) {
@@ -38,6 +45,8 @@ public class Projectile extends Entity{
 			}
 		}
 		
+		checkCollision();
+
 		switch(direction) {
  		case "up": worldY -= speed; break;
  		case "down": worldY += speed; break;
