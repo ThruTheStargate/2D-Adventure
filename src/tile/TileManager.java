@@ -1,4 +1,4 @@
-package tile;
+package tile; //the folder
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -15,9 +15,6 @@ import main.UtilityTool;
 	public Tile[] tile;
 	public int mapTileNum[][][];
 	boolean drawPath = false;
-	//public String currentMap = "/map/world01b.txt";
-	//public String currentMap = "/map/interior01.txt";
-	//public String currentMap = "/map/worldV2.txt";
 	public String currentMap = "/map/worldV3.txt";
 	public TileManager(GamePanel gp) {
 		this.gp = gp;
