@@ -34,7 +34,7 @@ import main.UtilityTool;
 		
 		setup(0, "grass", false);
 		setup(1, "wall", true);
-		//setup(2, "water", true);
+		setup(02, "fairyRing01", true);
 		setup(3, "earth", false);
 		setup(4, "tree", true);
 		setup(5, "sand", false);
@@ -79,15 +79,14 @@ import main.UtilityTool;
 		setup(42, "hut", false);
 		setup(43, "floor01", false);
 		setup(44, "table01", true);
-		setup(45,"bridge01",false);
-		setup(46,"bridge02",false);
+		setup(45, "bridge01",false);
+		setup(46, "bridge02",false);
 		setup(48, "bridge03", false);
 		setup(49, "bridge04", false);
 		setup(50, "bridge05", false);
 		setup(52, "bridge06", false);
 		setup(53, "bridge07", false);
 
-		setup(54, "fairyRing01", false);
 			
 	}
 	
