@@ -92,7 +92,10 @@ import main.UtilityTool;
 		setup(55, "wall01", true);
 		setup(56, "wall02", true);
 		setup(57, "wall03", true);
-
+		setup(58, "wall04", true);
+		setup(59, "wall05", true);
+		setup(58, "wall06", true);
+		setup(59, "wall07", true);
 			
 	}
 	
