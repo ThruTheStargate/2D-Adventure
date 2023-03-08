@@ -41,6 +41,7 @@ import main.UtilityTool;
 		setup(6, "water01", true);
 		setup(7, "tree", false);
 		setup(8, "road00", false);
+
 		setup(9, "water00", true);			
 		setup(10,"grass00",false);
 		setup(11,"grass01", false);
@@ -86,6 +87,10 @@ import main.UtilityTool;
 		setup(50, "bridge05", false);
 		setup(52, "bridge06", false);
 		setup(53, "bridge07", false);
+
+		setup(54, "wall", true);
+		setup(55, "wall01", true);
+		setup(56, "wall02", true);
 
 			
 	}
