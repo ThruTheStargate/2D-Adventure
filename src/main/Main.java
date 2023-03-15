@@ -1,6 +1,6 @@
-//Search for Castle Keep
+//Madiso and the Spirit Stick
 //Mr. Dumar's Class of 2022-2023
-//January 18, 2023
+//March 15th, 2023
 
 package main; //file name
 
@@ -15,7 +15,7 @@ public class Main {
         window = new JFrame();                                 //create the jframe object
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //ends program when the window is closed
         window.setResizable(false);                            //makes it so you can't resize the window
-        window.setTitle("Search for Castle Keep");
+        window.setTitle("Madiso and the Spirit Stick");
         
        
         GamePanel gamePanel = new GamePanel(); //creating new Game Panel object
