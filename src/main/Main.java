@@ -33,7 +33,7 @@ public class Main {
                 
 
 
-        gamePanel.setUpGame();
-        gamePanel.startGameThread();
+        gamePanel.setUpGame();       //setup the game
+        gamePanel.startGameThread(); //get it running
     } 
 }
