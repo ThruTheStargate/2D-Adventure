@@ -43,7 +43,7 @@ public class UI {
 		this.gp = gp;
 		
 		try {
-			InputStream is = getClass().getResourceAsStream("/font/MaruMonica.ttf");
+			InputStream is = getClass().getResourceAsStream("/font/maruMonica.TTF");
 			maruMonica = Font.createFont(Font.TRUETYPE_FONT, is);
 			is = getClass().getResourceAsStream("/font/ITCEDSCR.TTF");
 			blackarrad = Font.createFont(Font.TRUETYPE_FONT, is);
@@ -214,7 +214,7 @@ public class UI {
 		g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 		
 		g2.setFont(g2.getFont().deriveFont(Font.BOLD,90F));
-		String text = "Search for Castle Keep";
+		String text = "Madiso and the Spirit Stick";
 		int x = getXforCenteredText(text); 
 		int y = gp.tileSize*3;
 		

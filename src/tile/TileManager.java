@@ -1,4 +1,4 @@
-package tile; //the folder
+package tile;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
 import main.GamePanel;
 import main.UtilityTool;
@@ -15,16 +17,62 @@ import main.UtilityTool;
 	public Tile[] tile;
 	public int mapTileNum[][][];
 	boolean drawPath = false;
-	public String currentMap = "/map/worldV3.txt";
+	ArrayList<String> fileNames = new ArrayList<>();
+	ArrayList<String> collisionStatus = new ArrayList<>();
+	ArrayList<String> projectilePass = new ArrayList<>();
+	
+	
+
+	//public String currentMap = "/map/worldmap.txt";
 	public TileManager(GamePanel gp) {
 		this.gp = gp;
-		tile = new Tile[100];
-		mapTileNum = new int[gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
+		String initialTileData = "/map/tiledata3.txt";
+		//Read Tile Data file
+		InputStream is = getClass().getResourceAsStream(initialTileData);
+		BufferedReader br = new BufferedReader(new InputStreamReader(is));
 		
+		//Getting Tile Name and Collision INFO From the file  
+		String line; 
+		try {
+			while((line = br.readLine()) != null) {
+				fileNames.add(line);
+				collisionStatus.add(br.readLine());
+				if(initialTileData.equals("/map/tiledata3.txt")) {
+				projectilePass.add(br.readLine());
+				}else {
+					projectilePass.add(null);
+				}
+				
+			}
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		tile = new Tile[fileNames.size()];
 		getTileImage();
 		
-		loadMap(currentMap, 0);
-		loadMap("/map/interior01.txt",1);
+		is = getClass().getResourceAsStream("/map/worldmap.txt");
+		br = new BufferedReader(new InputStreamReader(is));
+		
+		try {
+			String line2 = br.readLine();
+			String maxTile[] = line2.split(" ");
+			
+			gp.maxWorldCol = maxTile.length;
+			gp.maxWorldRow = maxTile.length;
+			mapTileNum = new int[gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
+			
+			br.close();
+			
+		}catch(IOException e) {
+			System.out.println("Exception!");
+		}
+		
+		loadMap("/map/worldmap.txt",0);  
+		loadMap("/map/indoor01.txt",1);
+		loadMap("/map/dungeon01.txt",2);
+		loadMap("/map/dungeon02.txt",3);
 	}
 	public void setTile(int num, boolean pass) {
 		tile[num].collision = pass;
@@ -32,84 +80,52 @@ import main.UtilityTool;
 	
 	public void getTileImage() {
 		
-		setup(0, "grass", false);
-		setup(1, "wall", true);
-		setup(02, "fairyRing01", true);
-		setup(3, "earth", false);
-		setup(4, "tree", true);
-		setup(5, "sand", false);
-		setup(6, "water01", true);
-		setup(7, "tree", false);
-		setup(8, "road00", false);
-
-		setup(9, "water00", true);			
-		setup(10,"grass00",false);
-		setup(11,"grass01", false);
-		setup(12,"water00", true);
-		setup(13,"water01", true);
-		setup(14,"water02", true);
-		setup(15,"water03", true);
-		setup(16,"water04", true);
-		setup(17,"water05", true);
-		setup(18,"water06", true);
-		setup(19,"water07", true);
-		setup(20,"water08", true);
-		setup(21,"water09", true);
-		setup(22,"water10", true);
-		setup(23,"water11", true);
-		setup(24,"water12", true);
-		setup(25,"water13", true);
+		for (int i = 0; i < fileNames.size(); i++){
+			String fileName; 
+			boolean collision;
+			boolean projectileCollision;
 			
-		setup(26,"road00", false);
-		setup(27,"road01", false);
-		setup(28,"road02", false);
-		setup(29,"road03", false);
-		setup(30,"road04", false);
-		setup(31,"road05", false);
-		setup(32,"road06", false);
-		setup(33,"road07", false);
-		setup(34,"road08", false);
-		setup(35,"road09", false);
-		setup(36,"road10", false);
-		setup(37,"road11", false);
-		setup(38,"road12", false);
-
-		setup(39, "earth", false);
-		setup(40, "wall", true);
-		setup(41, "tree", true);
-		setup(42, "hut", false);
-		setup(43, "floor01", false);
-		setup(44, "table01", true);
-		setup(45, "bridge01",false);
-		setup(46, "bridge02",false);
-		setup(48, "bridge03", false);
-		setup(49, "bridge04", false);
-		setup(50, "bridge05", false);
-		setup(52, "bridge06", false);
-		setup(53, "bridge07", false);
-
-		setup(54, "wall", true);
-		setup(55, "wall01", true);
-		setup(56, "wall02", true);
-		setup(57, "wall03", true);
-
+			// get file name
+			fileName = fileNames.get(i);
 			
+			
+			//get collision status
+			if(collisionStatus.get(i).equals("true")) {
+				collision = true;
+			} else {
+				collision = false;
+			}
+			
+			
+			if(!projectilePass.get(i).equals(null) && projectilePass.get(i).equals("true")) {
+				projectileCollision = true;
+			} else {
+				projectileCollision = false;
+			}
+			
+			
+			//System.out.println(i + " " + "  " + fileName + "  " +  collision);
+			setup(i,fileName, collision, projectileCollision);
+		}
 	}
 	
-	public void setup(int index, String imageName, boolean collision ) {
+	public void setup(int index, String imageName, boolean collision, boolean projectileCollision ) {
 		UtilityTool uTool = new UtilityTool();
 	
 		try {
 			tile[index] = new Tile();
-			tile[index].image = ImageIO.read(getClass().getResourceAsStream("/tiles/"+imageName+".png"));
+			tile[index].image = ImageIO.read(getClass().getResourceAsStream("/tiles/" + imageName));
 			tile[index].image = uTool.scaledImage(tile[index].image, gp.tileSize, gp.tileSize);
 			tile[index].collision = collision;
+			tile[index].projectileCollision = projectileCollision;
 			//System.out.println(index + ": "+imageName+".png");
 			
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	public void loadMap(String filePath, int map) {
 		
